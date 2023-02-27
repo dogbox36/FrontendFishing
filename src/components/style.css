@@ -4,13 +4,10 @@ div {
     font-family: Lato;
 }
 
-<<<<<<< HEAD
 .megnincs {
     margin-top: 1em;
 }
 
-=======
->>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
 .wrapper {
     height: 97vh;
     width: 100%;
@@ -74,10 +71,7 @@ button {
     cursor: pointer;
     margin-right: 0.25em;
     margin-top: 0.5em;
-<<<<<<< HEAD
     margin-bottom: 0.5em;
-=======
->>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
     padding: 0.938em;
     border: none;
     border-radius: 4px;
