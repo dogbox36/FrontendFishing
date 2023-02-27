@@ -1,8 +1,14 @@
 import React from "react";
+<<<<<<< HEAD
 import { RouteComponentProps, withRouter} from "react-router";
 import './style.css';
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A -Z0–9]{2,4}\s?$/i);
 interface SignUpProps extends RouteComponentProps {
+=======
+import './style.css';
+const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A -Z0–9]{2,4}\s?$/i);
+interface SignUpProps {
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
     name?: any;
     value?: any;
  }
@@ -18,8 +24,12 @@ interface SignUpProps extends RouteComponentProps {
        phone : string,
     }
  }
+<<<<<<< HEAD
 
 class SignUp extends React.Component<SignUpProps, SignUpState>{
+=======
+export class SignUp extends React.Component<SignUpProps, SignUpState>{
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
 
 
  
@@ -61,9 +71,15 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
 
     handleChange = (event : any) => {
         event.preventDefault();
+<<<<<<< HEAD
         const { username, value } = event.target;
         let errors = this.state.errors;
         switch (username) {
+=======
+        const { name, value } = event.target;
+        let errors = this.state.errors;
+        switch (name) {
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
           case 'username':
              errors.username = value.length < 5 ? 'A felhasználónévnek minimum 5 karakter hosszúnak kell lennie!': '';
              break;
@@ -76,7 +92,11 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
           default:
             break;
         }
+<<<<<<< HEAD
       this.setState(Object.assign(this.state, { errors,[username]: value }));
+=======
+      this.setState(Object.assign(this.state, { errors,[name]: value }));
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
       console.log(this.state.errors);
       }
       handleSubmit = (event : any) => {
@@ -87,7 +107,10 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
         );
         if(validity == true){
            console.log("Registering can be done");
+<<<<<<< HEAD
            this.props.history.push('/Main');
+=======
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
         }else{
            console.log("You cannot be registered!!!")
         }
@@ -112,11 +135,14 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
    }
 
 
+<<<<<<< HEAD
     handleLogin = () => {
         this.props.history.push('/');
     };
 
 
+=======
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
     render() {
         const {errors} = this.state
         return (
@@ -143,6 +169,7 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
                      <label htmlFor="phone">Telefonszám</label>
                      <input type='number' placeholder="+36" name='phone' onChange={this.handleChange}/>
                      {errors.phone.length > 0 &&  <span style={{color: "red"}}>{errors.phone}</span>}
+<<<<<<< HEAD
                   </div>
                   <div className='submit' onClick={this.handleUpload}>
                      <button>Regisztráció</button>
@@ -151,6 +178,12 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
                       <button>Vissza a Bejelentkezéshez</button>
                   </div>
 
+=======
+                  </div>               
+                  <div className='submit' onClick={this.handleUpload}>
+                     <button>Regisztráció</button>
+                  </div>
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
                   <div className="fish">
         <div className="koiCoil"></div>
         <div className="koiCoil"></div>
@@ -176,6 +209,10 @@ class SignUp extends React.Component<SignUpProps, SignUpState>{
       
      );
     }
+<<<<<<< HEAD
 }
 
 export default withRouter(SignUp);
+=======
+}
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2

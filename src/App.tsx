@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Fragment, useState } from 'react';
 import React from 'react';
 import './App.css';
@@ -56,6 +57,26 @@ class App extends React.Component<{}, State> {
       </div>
     );
   }
-}
+=======
+import React, { useState } from 'react';
+import './App.css';
+import { SignUp } from './components/SignUpForm';
+import { Login } from './components/Login';
+function App() {
+  const [showLogin, setShowLogin] = useState(true);
+  const handleToggle = () => {
+    setShowLogin(!showLogin);
+  }
 
+  return (
+    <div>
+      <button onClick={handleToggle}>
+        {showLogin ? 'Regisztráció' : 'Bejelentkezés'}
+      </button>
+      {showLogin ? <Login /> : <SignUp />}
+    </div>
+    
+  );
+>>>>>>> a13ee1be53fa383ec33a4e113f1f4538d9c88cc2
+}
 export default App;
