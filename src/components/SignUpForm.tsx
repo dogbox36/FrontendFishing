@@ -51,7 +51,6 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
   
     };
 
-
     handleChange = (event : any) => {
         event.preventDefault();
         const { username, value } = event.target;
