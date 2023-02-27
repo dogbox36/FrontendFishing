@@ -1,7 +1,8 @@
 import React from "react";
+import { RouteComponentProps, withRouter} from "react-router";
 import './style.css';
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A -Z0–9]{2,4}\s?$/i);
-interface SignUpProps {
+interface SignUpProps extends RouteComponentProps {
     name?: any;
     value?: any;
  }
@@ -17,7 +18,8 @@ interface SignUpProps {
        phone : string,
     }
  }
-export class SignUp extends React.Component<SignUpProps, SignUpState>{
+
+class SignUp extends React.Component<SignUpProps, SignUpState>{
 
 
  
@@ -59,9 +61,9 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
 
     handleChange = (event : any) => {
         event.preventDefault();
-        const { name, value } = event.target;
+        const { username, value } = event.target;
         let errors = this.state.errors;
-        switch (name) {
+        switch (username) {
           case 'username':
              errors.username = value.length < 5 ? 'A felhasználónévnek minimum 5 karakter hosszúnak kell lennie!': '';
              break;
@@ -74,7 +76,7 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
           default:
             break;
         }
-      this.setState(Object.assign(this.state, { errors,[name]: value }));
+      this.setState(Object.assign(this.state, { errors,[username]: value }));
       console.log(this.state.errors);
       }
       handleSubmit = (event : any) => {
@@ -85,6 +87,7 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
         );
         if(validity == true){
            console.log("Registering can be done");
+           this.props.history.push('/Main');
         }else{
            console.log("You cannot be registered!!!")
         }
@@ -107,6 +110,11 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
          this.state = initialState;
          this.handleChange = this.handleChange.bind(this);
    }
+
+
+    handleLogin = () => {
+        this.props.history.push('/');
+    };
 
 
     render() {
@@ -135,10 +143,14 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
                      <label htmlFor="phone">Telefonszám</label>
                      <input type='number' placeholder="+36" name='phone' onChange={this.handleChange}/>
                      {errors.phone.length > 0 &&  <span style={{color: "red"}}>{errors.phone}</span>}
-                  </div>               
+                  </div>
                   <div className='submit' onClick={this.handleUpload}>
                      <button>Regisztráció</button>
                   </div>
+                  <div className='submit' onClick={this.handleLogin}>
+                      <button>Vissza a Bejelentkezéshez</button>
+                  </div>
+
                   <div className="fish">
         <div className="koiCoil"></div>
         <div className="koiCoil"></div>
@@ -165,3 +177,5 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
      );
     }
 }
+
+export default withRouter(SignUp);
