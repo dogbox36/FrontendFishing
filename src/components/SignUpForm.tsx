@@ -45,32 +45,60 @@ export class SignUp extends React.Component<SignUpProps, SignUpState>{
     };
      
     handleUpload = async () => {
-     const { username, password, email,phone} = this.state;
+      const { username, password, email, phone } = this.state;
     
-  
       const loginData = {
         username: username,
         password: password,
         email: email,
         phone: phone,
       };
-  
+    
       let response = await fetch('http://localhost:3000/auth/users', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(loginData),
       });
-  
-      this.setState({ 
-         username: '',
-         password: '',
-         email: '',
-         phone: '',
-      })
-  
+    
+      let responseData = await response.json();
+    
+      if (response.ok && responseData.message === 'Registration successful') {
+        this.setState({
+          username: '',
+          password: '',
+          email: '',
+          phone: '',
+          alert: {
+            type: 'success',
+            message: 'Sikeres regisztráció!',
+            show: true,
+          },
+        });
+        this.timeoutId = setTimeout(() => {
+          this.setState({ alert: { ...this.state.alert, show: false } });
+          window.location.href = '/login'; // Redirect to login page
+        }, 5000);
+      } else if (response.status === 400) {
+        this.setState({
+          alert: {
+            type: 'error',
+            message: responseData.message,
+            show: true,
+          },
+        });
+      } else {
+        this.setState({
+          alert: {
+            type: 'error',
+            message: 'Hiba történt a regisztráció során.',
+            show: true,
+          },
+        });
+      }
     };
+    
 
     handleChange = (event: any) => {
       console.log('handle change');
