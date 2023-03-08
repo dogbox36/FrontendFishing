@@ -6,7 +6,6 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBook, faCalendar, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
 
-import './style.css';
 import events from "./events";
 import './Sidebar.css';
 import { Link } from "react-router-dom";
@@ -67,6 +66,7 @@ export default class ProfilePage extends Component<Props, State> {
             maxWidth: "40%",
             maxHeight: "25%",
         };
+        
 
         return (
             <div>
@@ -74,7 +74,7 @@ export default class ProfilePage extends Component<Props, State> {
                 <p>My profile:</p>
                 <p>Username: {profile?.username}</p>
                 <p>User id: {profile?.id}</p>
-                <div className="App" style={containerStyle}>
+                <div className="App full-calendar-container" style={containerStyle}>
                     <FullCalendar {...calendarProps} />
                 </div>
                 <aside className={`sidebar ${this.state.isOpen ? 'open' : ''}`}>
