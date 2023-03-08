@@ -165,8 +165,8 @@ input::-webkit-inner-spin-button {
 body,
 .seaLevel {
     font-family: "Open Sans", sans-serif;
-    background-color: lightblue;
     overflow: hidden;
+    background-color: rgb(0, 153, 255)
 }
 
 .fish {

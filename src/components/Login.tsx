@@ -23,9 +23,21 @@ class Login extends Component<Props, State> {
     }
   }
 
-  handleLogout = () => {
-    localStorage.removeItem('authToken');
-    this.props.onAuthTokenChange('');
+  handleLogout = async () => {
+    const token = localStorage.getItem('authToken');
+    if (token === null) return;
+  
+    const response = await fetch('http://localhost:3000/auth/logout', {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    
+    if (response.ok) {
+      localStorage.removeItem('authToken');
+      this.props.onAuthTokenChange('');
+    }
   }
 
   componentDidMount() {
