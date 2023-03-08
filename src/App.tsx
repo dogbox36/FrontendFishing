@@ -7,9 +7,7 @@ import { createBrowserHistory } from 'history';
 import SignUp from './components/SignUpForm';
 import Login from './components/Login';
 import Main from './components/Main';
-import ProfileData from './ProfileData';
 import ProfilePage from './components/ProfilePage';
-
 
 interface State {
   authToken: string;
@@ -34,7 +32,8 @@ class App extends React.Component<{}, State> {
           <Router history={createBrowserHistory()}>
             <Switch>
               <Route path='/SignUp'>
-                <SignUp />
+              <SignUp alert={{ type: 'success', message: '' }} />
+
               </Route>
               <Route path='/Main'>
                 <Main />

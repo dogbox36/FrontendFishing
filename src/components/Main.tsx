@@ -1,35 +1,35 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-}
+import FullCalendar from "@fullcalendar/react";
+import { EventInput } from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
 
-const Main: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+import './style.css';
+import events from "./events";
 
-  const handleAddPost = () => {
-    const newPost: Post = {
-      id: posts.length + 1,
-      title: `Post ${posts.length + 1}`,
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
-    };
-    setPosts([...posts, newPost]);
+export default function App(): JSX.Element {
+
+  const calendarProps = {
+    defaultView: "dayGridMonth",
+    header: {
+      left: "prev,next",
+      center: "title",
+      right: "dayGridMonth,timeGridWeek,timeGridDay"
+    },
+    themeSystem: "Simplex",
+    plugins: [dayGridPlugin],
+    events: events
+  };
+
+
+  const containerStyle = {
+    maxWidth: "40%",
+    maxHeight: "25%",
   };
 
   return (
-    <div>
-      <h1>Forum</h1>
-      <button onClick={handleAddPost}>Add post</button>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
+    <div className="App" style={containerStyle}>
+      <FullCalendar {...calendarProps} />
     </div>
   );
-};
-
-export default Main;
+}

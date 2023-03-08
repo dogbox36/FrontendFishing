@@ -41,9 +41,8 @@ class Login extends Component<Props, State> {
       'username': this.state.username,
       'password': this.state.password,
     };
-
-    const response = await fetch('http://localhost:3000/api/users', {
-      method: 'GET',
+    const response = await fetch('http://localhost:3000/auth/login', {
+      method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
@@ -63,6 +62,7 @@ class Login extends Component<Props, State> {
       username: '',
       password: '',
       loginError: '',
+      
     })
     this.props.onAuthTokenChange(responseBody.token);
   }
@@ -77,7 +77,8 @@ class Login extends Component<Props, State> {
     const loggedIn = authToken !== '';
 
     if (loggedIn) {
-      return <button onClick={this.handleLogout}>Logout</button>
+
+      return <button className="logoutbutton" onClick={this.handleLogout}>Logout</button>
     }
     return (
       <div className='wrapper'>
@@ -86,14 +87,14 @@ class Login extends Component<Props, State> {
           <form onSubmit={this.handleLogin}>
             <div className='username'>
             <label htmlFor="username">
-              Username:</label>
+              Felhasználónév:</label>
               <input   type="text" value={username} onChange={(e) => this.setState({ username: e.target.value })} />
             
             </div>
             
             <div className='password'>
             <label htmlFor="password">
-              Password:</label>
+              Jelszó:</label>
               <input type="password" value={password} onChange={(e) => this.setState({ password: e.target.value })} />
             
             </div>
