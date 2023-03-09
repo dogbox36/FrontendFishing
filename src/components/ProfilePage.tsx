@@ -64,12 +64,6 @@ export default class ProfilePage extends Component<Props, State> {
             events: events,
             locale: huLocale
         };
-
-        const containerStyle = {
-            width: "80%",
-            height:"10%",
-            margin: "0 auto",
-        };
         
 
         return (
@@ -78,7 +72,7 @@ export default class ProfilePage extends Component<Props, State> {
                 <p>My profile:</p>
                 <p>Username: {profile?.username}</p>
                 <p>User id: {profile?.id}</p>
-                <div className="App full-calendar-container" style={containerStyle}>
+                <div className="App full-calendar-container">
                     <FullCalendar {...calendarProps} />
                 </div>
                 <aside className={`sidebar ${this.state.isOpen ? 'open' : ''}`}>
