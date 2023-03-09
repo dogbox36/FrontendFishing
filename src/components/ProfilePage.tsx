@@ -66,9 +66,9 @@ export default class ProfilePage extends Component<Props, State> {
         };
 
         const containerStyle = {
-            width: "85%",
-            height: "70vh",
-             margin: "0 auto",
+            width: "80%",
+            height:"10%",
+            margin: "0 auto",
         };
         
 
