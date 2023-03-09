@@ -8,35 +8,36 @@
     transition: all 0.3s ease-in-out;
     z-index: 1;
     background-color: white;
-    overflow-y: auto; /* hozzáadva */
-  }
-  
-  .sidebar.open {
+    overflow-y: auto;
+    /* hozzáadva */
+}
+
+.sidebar.open {
     left: 0;
-  }
-  
-  .sidebar__menu {
+}
+
+.sidebar__menu {
     margin-top: 50px;
     list-style: none;
     padding: 0;
-  }
-  
-  .sidebar__menu-item {
+}
+
+.sidebar__menu-item {
     margin: 10px;
     margin-right: auto;
     font-size: 18px;
-  }
-  
-  .sidebar__menu-item a {
+}
+
+.sidebar__menu-item a {
     color: #333;
     text-decoration: none;
-  }
-  
-  .sidebar__menu-item a:hover {
+}
+
+.sidebar__menu-item a:hover {
     color: #000;
-  }
-  
-  button {
+}
+
+button {
     min-width: 100%;
     cursor: pointer;
     margin-right: 0.25em;
@@ -47,9 +48,9 @@
     border-radius: 4px;
     background-color: rgb(22, 165, 58);
     color: #fefefe;
-  }
-  
-  .menubutton {
+}
+
+.menubutton {
     min-width: auto;
     cursor: pointer;
     margin-right: 0.25em;
@@ -61,14 +62,14 @@
     background-color: rgb(22, 165, 58);
     color: #fefefe;
     float: right;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: rgb(6, 73, 11);
     color: #fefefe;
-  }
-  
-  .full-calendar-container {
+}
+
+.full-calendar-container {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #5cb85c;
     border-radius: 5px;
@@ -78,64 +79,89 @@
     height: 80%;
     max-height: 100vh;
     position: fixed;
-     top: 50%;
-     left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
 
-  
-  /* Header styles */
-  .fc-today-button+.fc-toolbar-chunk {
+.logoutbutton {
+    min-width: auto;
+    cursor: pointer;
+    margin-right: 0.25em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.938em;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(22, 165, 58);
+    color: #fefefe;
+    float: right;
+    z-index: 2;
+    position: static;
+}
+
+
+/* Header styles */
+
+.fc-today-button+.fc-toolbar-chunk {
     margin-right: auto;
-  }
-  
-  .fc-today-button~.fc-toolbar-chunk {
+}
+
+.fc-today-button~.fc-toolbar-chunk {
     margin-right: 15px;
-  }
-  
-  /* Scrollbar styles */
-  ::-webkit-scrollbar {
+}
+
+
+/* Scrollbar styles */
+
+ ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+ ::-webkit-scrollbar-track {
     background: transparent;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+ ::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+ ::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
-  }
-  
-  /* Day styles */
-  .fc-day-header {
+}
+
+
+/* Day styles */
+
+.fc-day-header {
     background-color: #f5f5f5;
     border-right: 1px solid #ddd;
     font-weight: bold;
-  }
-  
-  .fc-day-top {
+}
+
+.fc-day-top {
     border-bottom: 1px solid #ddd;
-  }
-  
-  /* Event styles */
-  .fc-event {
+}
+
+
+/* Event styles */
+
+.fc-event {
     background-color: #5cb85c;
     color: #fff;
     border-radius: 3px;
     padding: 5px;
     margin-bottom: 5px;
-  }
-  
-  /* Today styles */
-  .fc-today {
+}
+
+
+/* Today styles */
+
+.fc-today {
     background-color: #f5f5f5;
-  }
+}
 
 .fc-today .fc-day-number {
     color: #5cb85c;

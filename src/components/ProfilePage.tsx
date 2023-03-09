@@ -1,11 +1,9 @@
 import { Component } from "react";
 import ProfileData from "../ProfileData";
-import FullCalendar from "@fullcalendar/react";
-import { EventInput } from "@fullcalendar/core";
-import dayGridPlugin from "@fullcalendar/daygrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBook, faCalendar, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
-import huLocale from '@fullcalendar/core/locales/hu';
+
+
 
 
 import events from "./events";
@@ -14,7 +12,8 @@ import { Link } from "react-router-dom";
 
 interface Props {
     authToken: string;
-}
+    onLogout: () => Promise<void>;
+  }
 
 interface State {
     profile: ProfileData | null;
@@ -52,18 +51,6 @@ export default class ProfilePage extends Component<Props, State> {
     render() {
         const { profile } = this.state;
 
-        const calendarProps = {
-            defaultView: "dayGridMonth",
-            header: {
-              left: "prev,next",
-              center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay",
-            },
-            themeSystem: "Simplex",
-            plugins: [dayGridPlugin],
-            events: events,
-            locale: huLocale
-        };
         
 
         return (
@@ -72,18 +59,18 @@ export default class ProfilePage extends Component<Props, State> {
                 <p>My profile:</p>
                 <p>Username: {profile?.username}</p>
                 <p>User id: {profile?.id}</p>
-                <div className="App full-calendar-container">
-                    <FullCalendar {...calendarProps} />
-                </div>
                 <aside className={`sidebar ${this.state.isOpen ? 'open' : ''}`}>
                     <ul className="sidebar__menu">
                         <li className="sidebar__menu-item">
                             <Link to="/">&nbsp;Főoldal</Link>
                         </li>
                         <li className="sidebar__menu-item">
+                        <Link to="/calendar">
                         <FontAwesomeIcon icon={faCalendar} />
-                            <Link to="/calendar">&nbsp;Naptár</Link>
-                        </li>
+                             &nbsp;Naptár
+                            </Link>
+                            </li>
+
                         <li className="sidebar__menu-item">
                             <FontAwesomeIcon icon={faBook} />
                             <Link to="/catchdiary">&nbsp;Fogásinapló</Link>
