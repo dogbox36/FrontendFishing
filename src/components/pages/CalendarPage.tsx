@@ -4,6 +4,7 @@ import { EventInput } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import huLocale from '@fullcalendar/core/locales/hu';
 import events from "../events";
+import ProfilePage from '../ProfilePage';
 import '../Sidebar.css';
 
 interface Props {
@@ -45,7 +46,7 @@ fetch('http://localhost:3000/events', {
     })
     .catch(error => console.error(error));
   
-}
+  }
 
 handleLogout = async () => {
 await this.props.onLogout();
@@ -73,6 +74,9 @@ return (
 </div>
 <div>
 <button className="logoutbutton" onClick={this.handleLogout}>Logout</button>
+</div>
+<div>
+<ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
 </div>
 </div>
 );
