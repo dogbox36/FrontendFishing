@@ -5,6 +5,8 @@ import { EventInput } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBook, faCalendar, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
+import huLocale from '@fullcalendar/core/locales/hu';
+
 
 import events from "./events";
 import './Sidebar.css';
@@ -55,16 +57,18 @@ export default class ProfilePage extends Component<Props, State> {
             header: {
               left: "prev,next",
               center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay"
+              right: "dayGridMonth,timeGridWeek,timeGridDay",
             },
             themeSystem: "Simplex",
             plugins: [dayGridPlugin],
-            events: events
+            events: events,
+            locale: huLocale
         };
 
         const containerStyle = {
-            maxWidth: "40%",
-            maxHeight: "25%",
+            width: "85%",
+            height: "70vh",
+             margin: "0 auto",
         };
         
 
