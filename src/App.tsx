@@ -4,9 +4,14 @@ import { BrowserRouter as Router, Route, Switch, Redirect, RouteProps } from 're
 
 import SignUp from './components/SignUpForm';
 import Login from './components/Login';
-import Main from './components/Main';
 import ProfilePage from './components/ProfilePage';
 import CalendarPage from './components/pages/CalendarPage';
+import BlogPage from './components/pages/BlogPage';
+import CatchdiaryPage from './components/pages/CatchdiaryPage';
+import ImagesPage from './components/pages/ImagesPage';
+import ContactPage from './components/pages/ContactPage';
+import MainPage from './components/pages/MainPage';
+
 
 interface State {
   authToken: string;
@@ -64,10 +69,12 @@ class App extends React.Component<{}, State> {
               <Route path='/SignUp'>
                 <SignUp alert={{ type: 'success', message: '' }} />
               </Route>
-              <Route path='/Main'>
-                <Main />
-              </Route>
               <PrivateRoute path="/calendar" component={CalendarPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/blog" component={BlogPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/catchdiary" component={CatchdiaryPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/contact" component={ContactPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/images" component={ImagesPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/main" component={MainPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <Route path='/'>
                 <Login
                   authToken={authToken}

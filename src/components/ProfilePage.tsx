@@ -56,13 +56,10 @@ export default class ProfilePage extends Component<Props, State> {
         return (
             <div>
                 <button className="menubutton" onClick={this.toggleSidebar}><FontAwesomeIcon icon={faBars} /></button>
-                <p>My profile:</p>
-                <p>Username: {profile?.username}</p>
-                <p>User id: {profile?.id}</p>
                 <aside className={`sidebar ${this.state.isOpen ? 'open' : ''}`}>
                     <ul className="sidebar__menu">
                         <li className="sidebar__menu-item">
-                            <Link to="/">&nbsp;Főoldal</Link>
+                            <Link to="/main">&nbsp;Főoldal</Link>
                         </li>
                         <li className="sidebar__menu-item">
                         <Link to="/calendar">
