@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ProfilePage from '../ProfilePage';
 import '../Sidebar.css';
-import { GoogleMap, InfoWindow, LoadScript, Marker } from '@react-google-maps/api';
+import './Map.css';
+import { GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
+
 
 interface Props {
   authToken: string;
@@ -79,32 +81,32 @@ export default class MainPage extends Component<Props, State> {
     await this.props.onLogout();
   };
 
+  
+  
+
 render() {
   const { markerPosition, comment, savedMarkers } = this.state;
   return (
     <div>
       <div>
-        <button className="logoutbutton" onClick={this.handleLogout}>
-          Logout
-        </button>
-      </div>
-      <div>
         <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
       </div>
+      <div className="map-container">
       <div>
         {markerPosition && (
           <>
-            <textarea value={comment} onChange={this.handleCommentChange} />
-            <button onClick={this.handleMarkerSave}>Save Marker</button>
+            <textarea className="comment" value={comment} onChange={this.handleCommentChange} />
+            <button  className="savebutton" onClick={this.handleMarkerSave}>Save Marker</button>
           </>
         )}
       </div>
-      <LoadScript googleMapsApiKey="AIzaSyAe4uKw0R1s4MBqPzeER_kXIGITrs4Gwvg">
+      <LoadScript  googleMapsApiKey="AIzaSyAe4uKw0R1s4MBqPzeER_kXIGITrs4Gwvg">
         <GoogleMap
           mapContainerStyle={{ height: "700px", width: "100%" }}
           center={this.state.mapCenter}
-          zoom={6}
+          zoom={7}
           onClick={this.handleMarkerClick}
+          
         >
           {savedMarkers.map(marker => (
   <Marker
@@ -116,34 +118,10 @@ render() {
       });
     }}
   >
-    {this.state.selectedMarker === marker && (
-      <InfoWindow
-        position={{ lat: marker.lat, lng: marker.lng }}
-        onCloseClick={() => {
-          this.setState({
-            selectedMarker: null
-          });
-        }}
-      >
-        <div>
-          <p>Szélességkör: {marker.lat}</p>
-          <p>Hosszúság: {marker.lng}</p>
-          {marker.comment && <p>Megjegyzés: {marker.comment}</p>} {/* Add this line */}
-        </div>
-      </InfoWindow>
-    )}
   </Marker>
 ))}
 
-          {markerPosition && (
-            <Marker
-              position={markerPosition}
-              icon={{
-                url: "https://maps.google.com/mapfiles/kml/shapes/placemark_circle.png",
-                scaledSize: new window.google.maps.Size(32, 32)
-              }}
-            />
-          )}
+{markerPosition && <Marker position={markerPosition} />}
           {this.state.selectedMarker && (
             <InfoWindow
               position={{ lat: this.state.selectedMarker.lat, lng: this.state.selectedMarker.lng }}
@@ -160,8 +138,10 @@ render() {
               </div>
             </InfoWindow>
           )}
+
         </GoogleMap>
       </LoadScript>
+    </div>
     </div>
   );
 }

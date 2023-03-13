@@ -1,0 +1,32 @@
+.catch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+body {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #999999 #f2f2f2;
+}
+
+.catch-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.catch-image-data {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+    width: 300px;
+}
+
+.catch-image-data p {
+    margin: 5px 0;
+}

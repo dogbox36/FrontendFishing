@@ -27,7 +27,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, logge
   <Route {...rest} render={(props) => (
     loggedIn
       ? <Component {...props} onLogout={onLogout} />
-      : <Redirect to='/' />
+      : <Redirect to='/main' />
   )} />
 );
 
@@ -74,14 +74,13 @@ class App extends React.Component<{}, State> {
               <PrivateRoute path="/catchdiary" component={CatchdiaryPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <PrivateRoute path="/contact" component={ContactPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <PrivateRoute path="/images" component={ImagesPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
-              <PrivateRoute path="/main" component={MainPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <Route path='/'>
                 <Login
                   authToken={authToken}
                   onAuthTokenChange={(token) => this.setState({ authToken: token })}
                 />
                 {loggedIn ? (
-                  <ProfilePage
+                  <MainPage
                     authToken={authToken}
                     onLogout={this.handleLogout}
                   />
