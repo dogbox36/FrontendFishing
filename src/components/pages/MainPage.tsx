@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProfilePage from '../ProfilePage';
 import '../Sidebar.css';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, InfoWindow, LoadScript, Marker } from '@react-google-maps/api';
 
 interface Props {
   authToken: string;
@@ -17,8 +17,11 @@ interface State {
   markerPosition: {
     lat: number;
     lng: number;
+    comment: string;
   } | null;
   comment: string;
+  savedMarkers: Array<{ lat: number, lng: number, comment: string }>;
+  selectedMarker: { lat: number, lng: number, comment: string } | null;
 }
 
 export default class MainPage extends Component<Props, State> {
@@ -27,11 +30,13 @@ export default class MainPage extends Component<Props, State> {
     this.state = {
       authToken: props.authToken,
       mapCenter: {
-        lat: 39.8283,
-        lng: -98.5795
+        lat: 47.1625,
+        lng: 19.5033
       },
       markerPosition: null,
-      comment: ''
+      comment: '',
+      savedMarkers: [],
+      selectedMarker: null
     };
   }
 
@@ -44,20 +49,24 @@ export default class MainPage extends Component<Props, State> {
         comment: comment
       };
       console.log(data); // itt lehet az adatokkal valamit tenni (pl. külső függvény meghívása)
-      this.setState({
+      this.setState(prevState => ({
+        savedMarkers: [...prevState.savedMarkers, { lat: markerPosition.lat, lng: markerPosition.lng, comment: comment }],
         markerPosition: null,
         comment: ''
-      });
+      }));
     }
   };
 
   handleMarkerClick = (event: google.maps.MapMouseEvent) => {
-    event.latLng && this.setState({
-      markerPosition: {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng()
-      }
-    })
+    event.latLng &&
+      this.setState({
+        markerPosition: {
+          lat: event.latLng.lat(),
+          lng: event.latLng.lng(),
+          comment: this.state.comment
+        },
+        selectedMarker: null
+      });
   };
 
   handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -70,37 +79,90 @@ export default class MainPage extends Component<Props, State> {
     await this.props.onLogout();
   };
 
-  render() {
-    const { markerPosition, comment } = this.state;
-    return (
+render() {
+  const { markerPosition, comment, savedMarkers } = this.state;
+  return (
+    <div>
       <div>
-        <LoadScript googleMapsApiKey="AIzaSyAe4uKw0R1s4MBqPzeER_kXIGITrs4Gwvg">
-          <GoogleMap
-            mapContainerStyle={{ height: "500px", width: "100%" }}
-            center={this.state.mapCenter}
-            zoom={6}
-            onClick={this.handleMarkerClick}
-          >
-            {markerPosition && <Marker position={markerPosition} />}
-          </GoogleMap>
-        </LoadScript>
-        <div>
-          <button className="logoutbutton" onClick={this.handleLogout}>
-            Logout
-          </button>
-        </div>
-        <div>
-          <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
-        </div>
-        <div>
-          {markerPosition && (
-            <>
-              <textarea value={comment} onChange={this.handleCommentChange} />
-              <button onClick={this.handleMarkerSave}>Save Marker</button>
-            </>
-          )}
-        </div>
+        <button className="logoutbutton" onClick={this.handleLogout}>
+          Logout
+        </button>
       </div>
-    );
-  }
+      <div>
+        <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
+      </div>
+      <div>
+        {markerPosition && (
+          <>
+            <textarea value={comment} onChange={this.handleCommentChange} />
+            <button onClick={this.handleMarkerSave}>Save Marker</button>
+          </>
+        )}
+      </div>
+      <LoadScript googleMapsApiKey="AIzaSyAe4uKw0R1s4MBqPzeER_kXIGITrs4Gwvg">
+        <GoogleMap
+          mapContainerStyle={{ height: "700px", width: "100%" }}
+          center={this.state.mapCenter}
+          zoom={6}
+          onClick={this.handleMarkerClick}
+        >
+          {savedMarkers.map(marker => (
+  <Marker
+    key={`${marker.lat}-${marker.lng}`}
+    position={{ lat: marker.lat, lng: marker.lng }}
+    onClick={() => {
+      this.setState({
+        selectedMarker: marker
+      });
+    }}
+  >
+    {this.state.selectedMarker === marker && (
+      <InfoWindow
+        position={{ lat: marker.lat, lng: marker.lng }}
+        onCloseClick={() => {
+          this.setState({
+            selectedMarker: null
+          });
+        }}
+      >
+        <div>
+          <p>Szélességkör: {marker.lat}</p>
+          <p>Hosszúság: {marker.lng}</p>
+          {marker.comment && <p>Megjegyzés: {marker.comment}</p>} {/* Add this line */}
+        </div>
+      </InfoWindow>
+    )}
+  </Marker>
+))}
+
+          {markerPosition && (
+            <Marker
+              position={markerPosition}
+              icon={{
+                url: "https://maps.google.com/mapfiles/kml/shapes/placemark_circle.png",
+                scaledSize: new window.google.maps.Size(32, 32)
+              }}
+            />
+          )}
+          {this.state.selectedMarker && (
+            <InfoWindow
+              position={{ lat: this.state.selectedMarker.lat, lng: this.state.selectedMarker.lng }}
+              onCloseClick={() => {
+                this.setState({
+                  selectedMarker: null
+                });
+              }}
+            >
+              <div>
+                <p>Szélességkör: {this.state.selectedMarker.lat}</p>
+                <p>Hosszúság: {this.state.selectedMarker.lng}</p>
+                <p>Megjegyzés: {this.state.selectedMarker.comment}</p>
+              </div>
+            </InfoWindow>
+          )}
+        </GoogleMap>
+      </LoadScript>
+    </div>
+  );
+}
 }
