@@ -4,6 +4,8 @@ import '../Sidebar.css';
 import './Map.css';
 import { GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
+import './Blog.css'; // importáljuk a létrehozott CSS fájlt
+
 
 interface Props {
   authToken: string;
@@ -89,6 +91,7 @@ render() {
   return (
     <div>
       <div>
+      
         <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
       </div>
       <div className="map-container">
@@ -102,7 +105,7 @@ render() {
       </div>
       <LoadScript  googleMapsApiKey="AIzaSyAe4uKw0R1s4MBqPzeER_kXIGITrs4Gwvg">
         <GoogleMap
-          mapContainerStyle={{ height: "700px", width: "100%" }}
+          mapContainerStyle={{ height: "100%", width: "100%", margin: 0, padding: 0 }}
           center={this.state.mapCenter}
           zoom={7}
           onClick={this.handleMarkerClick}
