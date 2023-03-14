@@ -14,7 +14,7 @@ interface Props {
   onLogout: () => Promise<void>;
 }
 
-const speciesOptions = ["Ponty", "Harcsa", "Keszeg", "Csuka"];
+const speciesOptions = ["Ponty", "Harcsa", "Garda", "Csuka", "Busa", "Compó","Jász-keszeg","Kárász","Kecsege","Márna","Paduc","Szilvaorrú keszeg","Amur","Bagolykeszeg","Bodorka","Dévérkeszeg","Ezüstkárász","Fehér busa","Pettyes busa","Karikakeszeg","Kínai razbóra","Lapátorrú tok vagy kanalas tok","Lapos keszeg","Naphal","Nyúldomolykó","Tüskés pikó","Szélhajtó küsz","Vágódurbincs","Vörösszárnyú keszeg","Balin","Domolykó","Süllő","Kősüllő","Menyhal","Sebes pisztráng","Afrikai harcsa","Angolna","Fekete sügér","Kessler géb","Pataki szajbling","Sügér","Szivárványos pisztráng","Törpeharcsa"];
 
 const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
   const [fishList, setFishList] = useState<Fish[]>([]);
@@ -57,7 +57,30 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
         <div>
           <ProfilePage authToken={authToken} onLogout={onLogout} />
           </div>
-        
+          <div className="catch-diary-list-container">
+  <h2 className="catch-diary-list-heading">Rögzített fogások:</h2>
+  <div  className="catch-diary-list-item-container">
+          <span className="catch-diary-list-item">Fajta</span>
+          <span className="catch-diary-list-item">súly</span>
+          <span className="catch-diary-list-item">hossza</span>
+          <span className="catch-diary-list-item">helyszín</span>
+        </div>
+  <div className="catch-diary-list">
+    {fishList.length === 0 ? (
+      <p className="catch-diary-empty-list">Nincs rögzített fogás.</p>
+    ) : (
+      fishList.map((fish, index) => (
+        <div key={index} className="catch-diary-list-item-container">
+          <span className="catch-diary-list-item">{fish.species}</span>
+          <span className="catch-diary-list-item">{fish.weight} kg</span>
+          <span className="catch-diary-list-item">{fish.length} cm</span>
+          <span className="catch-diary-list-item">{fish.location}</span>
+        </div>
+      ))
+    )}
+  </div>
+</div>
+
     <div className="catch-diary-container">
       <h1 className="kozepre">Fogásnapló</h1>
       <div className="catch-diary-form-container">
@@ -106,24 +129,8 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
 Rögzítés
 </button>
 </div>
-<div className="catch-diary-list-container">
-<h2 className="catch-diary-list-heading">Rögzített fogások:</h2>
-{fishList.length === 0 ? (
-<p className="catch-diary-empty-list">Nincs rögzített fogás.</p>
-) : (
-<ul className="catch-diary-list">
-{fishList.map((fish, index) => (
-<li key={index}>
-<span className="catch-diary-list-item">{fish.species}</span>
-<span className="catch-diary-list-item">{fish.weight} kg</span>
-<span className="catch-diary-list-item">{fish.length} cm</span>
-<span className="catch-diary-list-item">{fish.location}</span>
-</li>
-))}
-</ul>
-)}
 </div>
-</div></div>
+</div>
 );
 };
 
