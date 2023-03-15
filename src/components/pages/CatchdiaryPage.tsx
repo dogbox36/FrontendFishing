@@ -34,7 +34,10 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
     setCurrentFish({ ...currentFish, species: event.target.value });
   };
 
+  const [isSaving, setIsSaving] = useState(false);
+
   const handleLogSave = () => {
+    setIsSaving(true);
     const newFish = { ...currentFish };
     setFishList([...fishList, newFish]);
     setCurrentFish({
@@ -43,7 +46,37 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
       length: 0,
       location: "",
     });
+    fetch('http://localhost:3000/catches/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`,
+      },
+      body: JSON.stringify(newFish),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to add new fish.');
+        }
+        setIsSaving(false);
+      })
+      .then(() => {
+        fetch('http://localhost:3000/catches/info', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${authToken}`,
+          }
+        })
+          .then(response => response.json())
+          .then(data => setFishList(data))
+          .catch(error => console.error(error));
+      })
+      .catch(error => {
+        setIsSaving(false);
+        console.error(error);
+      });
   };
+  
 
   const handleLogout = async () => {
     await onLogout();
@@ -125,8 +158,8 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
           className="catch-diary-form-input"
         />
         <br />
-<button className="catch-diary-form-save-button" onClick={handleLogSave}>
-Rögzítés
+        <button className="catch-diary-form-button" onClick={handleLogSave} disabled={isSaving}>
+  {isSaving ? 'Rögzítés...' : 'Rögzítés'}
 </button>
 </div>
 </div>
