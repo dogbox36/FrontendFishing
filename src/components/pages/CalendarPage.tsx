@@ -29,7 +29,7 @@ const calendarApi = this.calendarComponentRef.current?.getApi();
 const start = calendarApi?.view?.currentStart.toISOString();
 const end = calendarApi?.view?.currentEnd.toISOString();
 
-fetch('http://localhost:3000/events', {
+fetch('http://localhost:3000/calendar/info', {
     headers: {
       'Authorization': `Bearer ${this.props.authToken}`
     }
@@ -76,7 +76,7 @@ fetch('http://localhost:3000/events', {
     const start = (document.getElementById('start') as HTMLInputElement).value;
     const end = (document.getElementById('end') as HTMLInputElement).value;
   
-    fetch('http://localhost:3000/events', {
+    fetch('http://localhost:3000/calendar/add', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${this.props.authToken}`,
@@ -103,21 +103,20 @@ fetch('http://localhost:3000/events', {
   return (
   <div>
   <div className="App full-calendar-container">
-  <FullCalendar ref={this.calendarComponentRef} {...this.calendarProps} />
   <div className="add-event-form">
   <label htmlFor="title">Cím:</label>
-  <input type="text" id="title" name="title" />
+  <input className="datumok" type="text" id="title" name="title" />
 
   <label htmlFor="start">Kezdés:</label>
-        <input type="datetime-local" id="start" name="start" />
+        <input className="datumok" type="datetime-local" id="start" name="start" />
 
 
 <label htmlFor="end">Vége:</label>
-<input type="datetime-local" id="end" name="end" />
+<input className="datumok" type="datetime-local" id="end" name="end" />
 
-<button onClick={this.handleCreateEvent}>Létrehozás</button>
+<button className="addbutton" onClick={this.handleCreateEvent}>Létrehozás</button>
 </div>
-
+  <FullCalendar ref={this.calendarComponentRef} {...this.calendarProps} />
 
 </div>
 <div>
