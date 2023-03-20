@@ -48,18 +48,32 @@ export default class MainPage extends Component<Props, State> {
     const { markerPosition, comment } = this.state;
     if (markerPosition) {
       const data = {
-        lat: markerPosition.lat,
-        lng: markerPosition.lng,
+        xLoccord: markerPosition.lat,
+        yLoccord: markerPosition.lng,
         comment: comment
       };
-      console.log(data); // itt lehet az adatokkal valamit tenni (pl. külső függvény meghívása)
-      this.setState(prevState => ({
-        savedMarkers: [...prevState.savedMarkers, { lat: markerPosition.lat, lng: markerPosition.lng, comment: comment }],
-        markerPosition: null,
-        comment: ''
-      }));
+      fetch('http://localhost:3000/locations/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log('Success:', result);
+          this.setState(prevState => ({
+            savedMarkers: [...prevState.savedMarkers, { lat: markerPosition.lat, lng: markerPosition.lng, comment: comment }],
+            markerPosition: null,
+            comment: ''
+          }));
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
   };
+  
 
   handleMarkerClick = (event: google.maps.MapMouseEvent) => {
     event.latLng &&
