@@ -3,6 +3,8 @@ import ProfilePage from '../ProfilePage';
 import '../Sidebar.css';
 import './Map.css';
 import { GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faBook, faCalendar, faFish, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
 
 import './Blog.css'; // importáljuk a létrehozott CSS fájlt
 
@@ -31,6 +33,7 @@ interface State {
 export default class MainPage extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    
     this.state = {
       authToken: props.authToken,
       mapCenter: {
@@ -102,6 +105,10 @@ export default class MainPage extends Component<Props, State> {
 
 render() {
   const { markerPosition, comment, savedMarkers } = this.state;
+  function solid(arg0: string): import("@fortawesome/fontawesome-svg-core").IconProp {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div>
       <div>
@@ -159,6 +166,26 @@ render() {
         </GoogleMap>
       </LoadScript>
     </div>
+    <div className="card-container">
+          <div className="card">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/4002/4002787.png" className="iconrendezes"></img>Horgász naptár</h2>
+            <p>Segít megtervezni a horgász kirándulásokat és emlékeztet a fontos dátumokra, például fogási tilalmakra.
+               De mi magunk is adhatunk hozzá tetszőleges eseményeket.
+               Praktikus minden horgász számára, aki szeretne naprakész lenni a horgászszezon alatt.</p>
+          </div>
+          <div className="card">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/5273/5273479.png" className="iconrendezes"></img>Töltsd fel fogásaid</h2>
+            <p>Online horgásznapló az interneten történő fogások nyomon követéséhez.
+               Könnyen használható felület, rögzíti a hal fajtáját, méretét, helyszínét, dátumát és egyéb fontos információkat.
+                Az adatok bármikor elérhetők az online felületen keresztül.</p>
+          </div>
+          <div className="card">
+            <h2 className="elrendezes"><img src="https://cdn-icons-png.flaticon.com/512/8901/8901481.png" className="iconrendezes"></img>Nézz körül a Blogon</h2>
+            <p>Tájékozódj a legújabb horgász trendekről és hasznos tippekről a horgászat világában.
+               A blog minden horgász számára hasznos lehet, legyen az kezdő vagy haladó szinten horgászó.
+                Olvasd el a szakértők tanácsait, és fejleszd tovább a tudásodat a horgászat terén!</p>
+          </div>
+        </div>
     </div>
   );
 }

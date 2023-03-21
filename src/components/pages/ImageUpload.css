@@ -1,0 +1,12 @@
+.image-upload-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.image-upload-input {
+    display: none;
+}
+
+.image-upload-selected-file {
+    margin-top: 10px;
+}
