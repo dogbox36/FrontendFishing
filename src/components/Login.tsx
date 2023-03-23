@@ -90,7 +90,7 @@ class Login extends Component<Props, State> {
 
     if (loggedIn) {
 
-      return <button className="logoutbutton" onClick={this.handleLogout}>Logout</button>
+      return <button className="logoutbutton" onClick={this.handleLogout}>Kijelentkezés</button>
     }
     return (
       <div className='wrapper'>

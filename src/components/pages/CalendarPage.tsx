@@ -102,6 +102,7 @@ fetch('http://localhost:3000/calendar/info', {
   render() {
   return (
   <div>
+    <h2 className="oldal">Naptár oldal</h2>
   <div className="App full-calendar-container">
   <div className="add-event-form">
   <label htmlFor="title">Cím:</label>
@@ -120,7 +121,7 @@ fetch('http://localhost:3000/calendar/info', {
 
 </div>
 <div>
-<button className="logoutbutton" onClick={this.handleLogout}>Logout</button>
+<button className="logoutbutton" onClick={this.handleLogout}>Kijelentkezés</button>
 </div>
 <div>
 <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />

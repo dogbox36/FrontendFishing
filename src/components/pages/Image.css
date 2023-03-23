@@ -4,6 +4,7 @@
     align-items: center;
     overflow-y: scroll;
     scrollbar-width: thin;
+    margin-top: 5%;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0;
+    padding-top: 5%;
 }
 
 .catch-image-data {

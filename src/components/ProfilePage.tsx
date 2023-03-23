@@ -1,7 +1,7 @@
 import { Component } from "react";
 import ProfileData from "../ProfileData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faBook, faCalendar, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBook, faCalendar, faHouseFlag, faImages, faInfoCircle, faPen, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -57,9 +57,11 @@ export default class ProfilePage extends Component<Props, State> {
             <div>
                 <button className="menubutton" onClick={this.toggleSidebar}><FontAwesomeIcon icon={faBars} /></button>
                 <aside className={`sidebar ${this.state.isOpen ? 'open' : ''}`}>
+                <button className="menubutton" onClick={this.toggleSidebar}><FontAwesomeIcon icon={faXmark}/></button>
                     <ul className="sidebar__menu">
                         <li className="sidebar__menu-item">
-                            <Link to="/main">&nbsp;Főoldal</Link>
+                            <Link to="/main"><FontAwesomeIcon icon={faHouseFlag} />
+                            &nbsp;Főoldal</Link>
                         </li>
                         <li className="sidebar__menu-item">
                         <Link to="/calendar">

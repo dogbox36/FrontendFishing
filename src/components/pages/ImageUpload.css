@@ -10,3 +10,15 @@
 .image-upload-selected-file {
     margin-top: 10px;
 }
+
+.image-upload {
+    top: 0;
+}
+
+.input-field {
+    padding: 5px;
+}
+
+.input-field input {
+    vertical-align: middle;
+}

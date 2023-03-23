@@ -14,7 +14,7 @@ const ContactPage: React.FC<Props> = (props) => {
 
   return (
     <div><div>
-        <button className="logoutbutton" onClick={handleLogout}>Logout</button>
+        <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>
       </div>
       <div>
         <ProfilePage authToken={props.authToken} onLogout={props.onLogout} />

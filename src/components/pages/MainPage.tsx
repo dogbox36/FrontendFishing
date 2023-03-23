@@ -113,6 +113,7 @@ render() {
   return (
     <div>
       <div>
+        <h2 className="oldal">Fő oldal</h2>
       
         <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />
       </div>
@@ -120,8 +121,8 @@ render() {
       <div>
         {markerPosition && (
           <>
-            <textarea className="comment" value={comment} onChange={this.handleCommentChange} />
-            <button  className="savebutton" onClick={this.handleMarkerSave}>Save Marker</button>
+            <textarea className="comment" placeholder="Ide írd a megjegyzéseket..." value={comment} onChange={this.handleCommentChange} />
+            <button  className="savebutton" onClick={this.handleMarkerSave}>Mentés</button>
           </>
         )}
       </div>

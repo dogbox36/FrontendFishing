@@ -84,8 +84,9 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
 
   return (
     <div>
+      <h2 className="oldal">Fogásinapló oldal</h2>
       <div>
-          <button className="logoutbutton" onClick={handleLogout}>Logout</button>
+          <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>
         </div>
         <div>
           <ProfilePage authToken={authToken} onLogout={onLogout} />

@@ -72,12 +72,16 @@ const handleImageSelected = async (image: File | null) => {
 
   return (
     <div>
+      <h2 className="oldal">Rekordfogások oldal</h2>
       <div>
-        <button className="logoutbutton" onClick={handleLogout}>Logout</button>
+        <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>
       </div>
       <div>
         <ProfilePage authToken={authToken} onLogout={onLogout} />
       </div>
+      <div className="catch-image">
+            <ImageUpload onImageSelected={handleImageSelected} />
+          </div>
       <div className="catch-container">
         <div className="catch-images">
           {images.map((image) => (
@@ -91,9 +95,7 @@ const handleImageSelected = async (image: File | null) => {
               </div>
             </div>
           ))}
-          <div className="catch-image">
-            <ImageUpload onImageSelected={handleImageSelected} />
-          </div>
+          
         </div>
       </div>
     </div>

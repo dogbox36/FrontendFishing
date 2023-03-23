@@ -40,10 +40,13 @@ const BlogPage = (props: Props) => {
   }
 
   return (
-    <div className="blog-page">
-      <div className="page-title">Blog oldal</div>
-      <button className="logoutbutton" onClick={handleLogout}>Logout</button>
+    <div>
+      <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>
       <ProfilePage authToken={props.authToken} onLogout={props.onLogout} />
+
+      <h2 className="oldal">Blog oldal</h2>
+    <div className="blog-page">
+      
       <div className="blog-posts">
         {testPosts.map((post, index) => (
           <div key={index} className="blog-post">
@@ -53,6 +56,7 @@ const BlogPage = (props: Props) => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

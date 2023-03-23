@@ -23,7 +23,7 @@ div {
 }
 
 .rbc-event {
-    background-color: #007bff;
+    background-color: #0099ff;
     color: #fff;
     font-size: 0.9rem;
     font-weight: bold;
@@ -44,7 +44,7 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 153, 255);
+    background-color: #0099ff;
 }
 
 .form-wrapper {
@@ -104,7 +104,7 @@ button {
     padding: 0.938em;
     border: none;
     border-radius: 4px;
-    background-color: rgb(22, 165, 58);
+    background-color: #5cb85c;
     color: #fefefe;
 }
 
@@ -122,7 +122,7 @@ button:hover {
     padding: 0.938em;
     border: none;
     border-radius: 4px;
-    background-color: rgb(22, 165, 58);
+    background-color: #5cb85c;
     color: #fefefe;
     float: right;
     z-index: 2;
@@ -166,7 +166,7 @@ body,
 .seaLevel {
     font-family: "Open Sans", sans-serif;
     overflow: hidden;
-    background-color: rgb(0, 153, 255)
+    background-color: #0099ff
 }
 
 .fish {
