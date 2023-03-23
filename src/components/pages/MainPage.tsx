@@ -47,6 +47,7 @@ export default class MainPage extends Component<Props, State> {
     };
   }
 
+
   handleMarkerSave = () => {
     const { markerPosition, comment } = this.state;
     if (markerPosition) {

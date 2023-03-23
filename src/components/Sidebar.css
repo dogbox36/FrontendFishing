@@ -154,7 +154,7 @@ button:hover {
 }
 
 .map-container>div:first-child {
-    position: absolute !important;
+    position: static !important;
 }
 
 .comment {
