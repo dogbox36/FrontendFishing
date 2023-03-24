@@ -8,7 +8,7 @@
     width: 30%;
     height: 90%;
     max-height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 54%;
     left: 33.3%;
     transform: translate(-50%, -50%);
@@ -155,7 +155,7 @@
     width: 30%;
     height: 90%;
     max-height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 54%;
     left: 65%;
     transform: translate(-50%, -50%);

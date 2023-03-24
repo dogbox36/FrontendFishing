@@ -77,6 +77,11 @@ button {
     color: #fefefe;
 }
 
+.infoalso {
+    text-decoration: none;
+    color: white;
+}
+
 .menubutton {
     min-width: auto;
     cursor: pointer;
@@ -96,6 +101,10 @@ button:hover {
     color: #fefefe;
 }
 
+.alsoresz {
+    text-align: justify;
+}
+
 .card-container {
     position: absolute;
     top: 100%;
@@ -103,6 +112,10 @@ button:hover {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    background-color: #3a3a3a;
+    color: white;
+    height: 50%;
+    align-items: center;
 }
 
 .card {
@@ -115,6 +128,10 @@ button:hover {
     font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.card p {
+    margin: 0.5em 0;
+}
+
 .full-calendar-container {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #5cb85c;
@@ -124,7 +141,7 @@ button:hover {
     width: 85%;
     height: 80%;
     max-height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -163,6 +180,10 @@ button:hover {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2em;
+}
+
+.fejlec {
+    background-color: #9bbff4;
 }
 
 .comment {

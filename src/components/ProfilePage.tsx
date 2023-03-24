@@ -88,6 +88,24 @@ export default class ProfilePage extends Component<Props, State> {
                         </li>
                     </ul>
                 </aside>
+                <div className="card-container">
+          <div className="card">
+            <h2>App letöltés</h2>
+            <p>Ezen a linek keresztül tudod letölteni a telefenos alkalmazásunkat.</p><p><Link to="/app" className="infoalso">&nbsp; Kattints ide!</Link></p>
+          </div>
+          <div className="card">
+            <h2>Információk</h2>
+            <p><Link to="/gyik" className="infoalso">&nbsp;GYIK</Link></p>
+            <p><Link to="/contact" className="infoalso">&nbsp;Elérhetőség</Link></p>
+          </div>
+          <div className="card">
+            <h2 className="card">Elérhetőségeink:</h2>
+            <p>Kapj el ha tudsz.&nbsp;
+            E-mail cím:</p>
+            <p>Web: dominik.budavari@gmail.com</p>
+            <p>Mobil: moravcsikmark@gmail.com</p>
+          </div>
+        </div>
             </div>
         );
     }
