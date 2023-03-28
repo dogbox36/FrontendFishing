@@ -46,6 +46,7 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
       length: 0,
       location: "",
     });
+    let authToken =  localStorage.getItem('authToken');
     fetch('http://localhost:3000/catches/add', {
       method: 'POST',
       headers: {
