@@ -28,10 +28,10 @@ handleDatesSet = () => {
 const calendarApi = this.calendarComponentRef.current?.getApi();
 const start = calendarApi?.view?.currentStart.toISOString();
 const end = calendarApi?.view?.currentEnd.toISOString();
-
+let authToken =  localStorage.getItem('authToken');
 fetch('http://localhost:3000/calendar/info', {
     headers: {
-      'Authorization': `Bearer ${this.props.authToken}`
+      'Authorization': `Bearer ${authToken}`,
     }
   })
     .then(res => res.json())
@@ -75,11 +75,11 @@ fetch('http://localhost:3000/calendar/info', {
     const title = (document.getElementById('title') as HTMLInputElement).value;
     const start = (document.getElementById('start') as HTMLInputElement).value;
     const end = (document.getElementById('end') as HTMLInputElement).value;
-  
+    let authToken =  localStorage.getItem('authToken');
     fetch('http://localhost:3000/calendar/add', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.props.authToken}`,
+        'Authorization': `Bearer ${authToken}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ title, start, end }),

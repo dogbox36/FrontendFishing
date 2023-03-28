@@ -57,10 +57,12 @@ export default class MainPage extends Component<Props, State> {
         yLoccord: markerPosition.lng,
         comment: comment
       };
+      let authToken =  localStorage.getItem('authToken');
       fetch('http://localhost:3000/locations/add', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`,
         },
         body: JSON.stringify(data)
       })
