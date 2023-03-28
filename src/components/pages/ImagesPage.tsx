@@ -22,6 +22,7 @@ const ImagesPage: React.FC<Props> = ({ authToken, onLogout }) => {
 
   useEffect(() => {
     const fetchImages = async () => {
+      let authToken =  localStorage.getItem('authToken');
       const response = await fetch("http://localhost:3000/images/info", {
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -50,7 +51,7 @@ const handleImageSelected = async (image: File | null) => {
   formData.append("weight", "");
   formData.append("length", "");
   formData.append("location", "");
-
+  let authToken =  localStorage.getItem('authToken');
   const response = await fetch("http://localhost:3000/images/add", {
     method: "POST",
     headers: {
