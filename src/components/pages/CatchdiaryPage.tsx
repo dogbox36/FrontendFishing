@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProfilePage from '../ProfilePage';
 import "./Catch.css";
 
@@ -14,7 +14,7 @@ interface Props {
   onLogout: () => Promise<void>;
 }
 
-const speciesOptions = ["Ponty", "Harcsa", "Garda", "Csuka", "Busa", "Compó","Jász-keszeg","Kárász","Kecsege","Márna","Paduc","Szilvaorrú keszeg","Amur","Bagolykeszeg","Bodorka","Dévérkeszeg","Ezüstkárász","Fehér busa","Pettyes busa","Karikakeszeg","Kínai razbóra","Lapátorrú tok vagy kanalas tok","Lapos keszeg","Naphal","Nyúldomolykó","Tüskés pikó","Szélhajtó küsz","Vágódurbincs","Vörösszárnyú keszeg","Balin","Domolykó","Süllő","Kősüllő","Menyhal","Sebes pisztráng","Afrikai harcsa","Angolna","Fekete sügér","Kessler géb","Pataki szajbling","Sügér","Szivárványos pisztráng","Törpeharcsa"];
+const speciesOptions: string[] = [ "Ponty", "Harcsa", "Garda", "Csuka", "Busa", "Compó","Jász-keszeg","Kárász","Kecsege","Márna","Paduc","Szilvaorrú keszeg","Amur","Bagolykeszeg","Bodorka","Dévérkeszeg","Ezüstkárász","Fehér busa","Pettyes busa","Karikakeszeg","Kínai razbóra","Lapátorrú tok vagy kanalas tok","Lapos keszeg","Naphal","Nyúldomolykó","Tüskés pikó","Szélhajtó küsz","Vágódurbincs","Vörösszárnyú keszeg","Balin","Domolykó","Süllő","Kősüllő","Menyhal","Sebes pisztráng","Afrikai harcsa","Angolna","Fekete sügér","Kessler géb","Pataki szajbling","Sügér","Szivárványos pisztráng","Törpeharcsa"];
 
 const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
   const [fishList, setFishList] = useState<Fish[]>([]);
@@ -60,28 +60,35 @@ const CatchdiaryPage: React.FC<Props> = ({ authToken, onLogout }) => {
           throw new Error('Failed to add new fish.');
         }
         setIsSaving(false);
-      })
-      .then(() => {
-        fetch('http://localhost:3000/catches/info', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${authToken}`,
-          }
-        })
-          .then(response => response.json())
-          .then(data => setFishList(data))
-          .catch(error => console.error(error));
+        loadSavedCatches(); // load the saved catches after saving a new catch
       })
       .catch(error => {
         setIsSaving(false);
         console.error(error);
       });
   };
-  
 
   const handleLogout = async () => {
     await onLogout();
   }
+
+  useEffect(() => {
+    loadSavedCatches(); // load the saved catches initially
+  }, []);
+
+  const loadSavedCatches = () => {
+    let authToken =  localStorage.getItem('authToken');
+    fetch('http://localhost:3000/catches/info', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+      }
+    })
+      .then(response => response.json())
+      .then(data => setFishList(data))
+      .catch(error => console.error(error));
+  }
+  
 
   return (
     <div>
