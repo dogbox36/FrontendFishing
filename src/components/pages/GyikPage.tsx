@@ -12,6 +12,7 @@ const GyikPage: React.FC<Props> = (props) => {
     await props.onLogout();
   }
 
+  
   return (
     <div><div>
         <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>

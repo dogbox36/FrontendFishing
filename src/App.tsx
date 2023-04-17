@@ -11,6 +11,7 @@ import CatchdiaryPage from './components/pages/CatchdiaryPage';
 import ImagesPage from './components/pages/ImagesPage';
 import ContactPage from './components/pages/ContactPage';
 import MainPage from './components/pages/MainPage';
+import GyikPage from './components/pages/GyikPage';
 
 
 interface State {
@@ -73,6 +74,7 @@ class App extends React.Component<{}, State> {
               <PrivateRoute path="/blog" component={BlogPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <PrivateRoute path="/catchdiary" component={CatchdiaryPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <PrivateRoute path="/contact" component={ContactPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
+              <PrivateRoute path="/gyik" component={GyikPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <PrivateRoute path="/images" component={ImagesPage} loggedIn={loggedIn} onLogout={this.handleLogout} />
               <Route path='/'>
                 <Login

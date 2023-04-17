@@ -31,9 +31,30 @@ interface State {
   selectedMarker: { lat: number, lng: number, comment: string } | null;
 }
 
+
 export default class MainPage extends Component<Props, State> {
+
   constructor(props: Props) {
     super(props);
+
+    let authToken = localStorage.getItem('authToken');
+  fetch(`http://localhost:3000/locations/info`, {
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      const savedMarkers = data.map((location: any) => ({
+        lat: location.xLoccord,
+        lng: location.yLoccord,
+        comment: location.comment
+      }));
+      this.setState({
+        savedMarkers: savedMarkers
+      });
+    })
+    .catch(error => console.error(error));
     
     this.state = {
       authToken: props.authToken,
@@ -47,7 +68,7 @@ export default class MainPage extends Component<Props, State> {
       selectedMarker: null
     };
   }
-
+  
 
   handleMarkerSave = () => {
     const { markerPosition, comment } = this.state;

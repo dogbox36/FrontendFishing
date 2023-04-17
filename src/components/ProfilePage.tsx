@@ -1,7 +1,7 @@
 import { Component } from "react";
 import ProfileData from "../ProfileData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faBook, faCalendar, faHouseFlag, faImages, faInfoCircle, faPen, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBook, faCalendar, faHouseFlag, faImages, faInfoCircle, faPen, faQuestion, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -84,6 +84,10 @@ export default class ProfilePage extends Component<Props, State> {
                         </li>
                         <li className="sidebar__menu-item">
                         <FontAwesomeIcon icon={faInfoCircle} />
+                            <Link to="/gyik">&nbsp;GYIK</Link>
+                        </li>
+                        <li className="sidebar__menu-item">
+                        <FontAwesomeIcon icon={faQuestion} />
                             <Link to="/contact">&nbsp;Elérhetőség</Link>
                         </li>
                     </ul>
