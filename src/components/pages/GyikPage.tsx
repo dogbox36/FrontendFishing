@@ -24,7 +24,7 @@ const GyikPage: React.FC<Props> = (props) => {
       
       <h1>GYIK</h1>
       <div className="contact-details">
-        <p><h3>Mire jó a Kapj el ha tudsz?</h3><div className="feher"> Az oldal lehetővé teszi a felhasználók számára,
+        <p><h3>Mire jó a Fogj ki ha tudsz?</h3><div className="feher"> Az oldal lehetővé teszi a felhasználók számára,
          hogy elmenthessék az általuk kiválasztott helyeket a térképen, és megjegyzéseket fűzzenek hozzájuk a horgászattal kapcsolatosan.
          Az oldal tartalmaz egy térképet, egy naptárat, egy fogásinaplót, egy fogási rekord listát, és egy blog oldalt.</div></p>
       </div>

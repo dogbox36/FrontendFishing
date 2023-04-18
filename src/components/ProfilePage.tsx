@@ -104,7 +104,7 @@ export default class ProfilePage extends Component<Props, State> {
           </div>
           <div className="card">
             <h2 className="card">Elérhetőségeink:</h2>
-            <p>Kapj el ha tudsz.&nbsp;
+            <p>Fogj ki ha tudsz.&nbsp;
             E-mail cím:</p>
             <p>Web: dominik.budavari@gmail.com</p>
             <p>Mobil: moravcsikmark@gmail.com</p>
