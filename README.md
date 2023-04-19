@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Fogj ki ha tudsz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Fogj ki ha tudsz egy weboldal, amelyet azoknak a horgászoknak terveztek, akik szeretnék nyomon követni a horgászatukat és megosztani tapasztalataikat másokkal. Az oldal használata egyszerű és intuitív, és lehetővé teszi a felhasználóknak, hogy egy térképen jelöljék meg, hol horgásztak, és mellé csatoljanak egy leírást az adott helyről.
 
-## Available Scripts
+## Bemutatás
 
-In the project directory, you can run:
+A főoldalon bejelentkezés után található a térkép, ahol a felhasználók egyszerűen kattintanak a horgász helyére, majd felvehetik a leírást és elmenthetik az adatokat. A jobb felső sarokban található a kijelentkezés gomb, és a mellette található a menü gomb, ahol megjelennek az oldalak, mint például a főoldal, naptár, fogási napló, blog, gyakran ismételt kérdések, és elérhetőség.
 
-### `npm start`
+A naptár oldalon a felhasználók új eseményeket vehetnek fel, amelyekhez meg kell adni az esemény címét, kezdési és befejezési időpontot, majd elmenthetik azokat. A fogási napló oldalon lehetőség van a fogások rögzítésére. A felhasználónak meg kell adnia a hal fajtáját, a súlyát és méretét, valamint azt, hogy hol fogta azt.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A blog oldalon számos hasznos tipp és tanács található a horgászathoz, a halászathoz és a halak feldolgozásához. A GYIK oldalon a felhasználók számára bemutatják az oldal használatát, a lehetőségeket és az esetleges kérdésekre adnak választ.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Az elérhetőség oldalon a fejlesztők elérhetők, hogy a felhasználók jelezni tudják, ha bármilyen problémába ütköznek az oldal használata során. Az oldal használata ingyenes és egyszerű, és segítséget nyújt a horgászoknak, hogy megosszák élményeiket és tanuljanak egymástól.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## A weboldal futtatása
 
-### `npm run build`
+### Első lépés
+Indítsuk el a XAMPP szoftvert, majd futtassuk az Apache és Mysql szolgáltatásokat. Ez azért fontos, mert a weboldalunk futtatásához szükség van egy webszerverre és adatbázis-szerverre is.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Második lépés
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Nyissuk meg a Visual Studio Code szerkesztőt, majd másoljuk be a következő linket: https://github.com/dogbox36/Backend_Fishing.git. Mentsük el a projektet, majd a terminálban írjuk be a "npm install" parancsot, hogy telepítsük a szükséges modulokat. Miután ez megtörtént, futtassuk a "npm run start:debug" parancsot a terminálból, hogy elindítsuk a backend szerverünket.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Harmadik lépés
 
-### `npm run eject`
+nyissunk meg egy másik Visual Studio Code szerkesztőt, majd másoljuk be a következő linket: https://github.com/dogbox36/FrontendFishing.git. Mentsük el a projektet, majd a terminálban írjuk be a "npm install" parancsot, hogy telepítsük a szükséges modulokat. Miután ez megtörtént, futtassuk a "npm start" parancsot a terminálból, hogy elindítsuk a frontend szerverünket. Fontos, hogy a 3001 porton indítsuk a frontend szerverünket, mivel a 3000 port már foglalt a backend miatt. Amikor megkérdezi, hogy futtassa-e a szerverünket a 3001-es porton, válasszuk a "Y" opciót.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ha minden lépést sikeresen végrehajtottunk, akkor elérhető lesz a weboldalunk a böngészőben, ahol tesztelhetjük és használhatjuk a funkcióit.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
