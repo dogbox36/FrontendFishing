@@ -24,25 +24,22 @@ const GyikPage: React.FC<Props> = (props) => {
       
       <h1>GYIK</h1>
       <div className="contact-details">
-        <p><h3>Mire jó a Fogj ki ha tudsz?</h3><div className="feher"> Az oldal lehetővé teszi a felhasználók számára,
-         hogy elmenthessék az általuk kiválasztott helyeket a térképen, és megjegyzéseket fűzzenek hozzájuk a horgászattal kapcsolatosan.
-         Az oldal tartalmaz egy térképet, egy naptárat, egy fogásinaplót, egy fogási rekord listát, és egy blog oldalt.</div></p>
-      </div>
-      <div className="contact-details">
         <p><h3>Mire jó a naptár?</h3><div className="feher"> A naptár lehetővé teszi a felhasználók számára,
          hogy elmenthessék az általuk kiválasztott eseményt a naptárba, elösször egy címet kell adni az eseménynek, majd utána meg adni hogy mettől meddig tartson az esemény.</div></p>
       </div>
       <div className="contact-details">
-        <p><h3>Mire jó a fogásinapló?</h3><div className="feher"> A naptár lehetővé teszi a felhasználók számára,
-         hogy elmenthessék az általuk kiválasztott eseményt a naptárba, elösször egy címet kell adni az eseménynek, majd utána meg adni hogy mettől meddig tartson az esemény.</div></p>
+        <p><h3>Mire jó a fogásinapló?</h3><div className="feher">
+           A fogási napló oldalon lehetőség van a fogások rögzítésére.
+            A felhasználónak meg kell adnia a hal fajtáját, a súlyát és méretét, valamint azt, hogy hol fogta azt.</div></p>
       </div>
-      <div className="bug-report">
-        <p>
-          Ha bármilyen hibát vagy bugot találsz az oldalon, kérlek jelezd az
-          alábbi e-mail címen:<a href="mailto:dominik.budavari@gmail.com" className="email-link">
-          dominik.budavari@gmail.com
-          </a>
-        </p>
+      <div className="contact-details">
+        <p><h3>Mire jó a Blog?</h3><div className="feher">
+           A blog oldalon számos hasznos tipp és tanács található a horgászathoz, a halászathoz és a halak feldolgozásához.
+           </div></p>
+      </div>
+      <div className="contact-details">
+        <p><h3>Mire jó a elérhetőség?</h3><div className="feher">
+           Az elérhetőség oldalon a fejlesztők elérhetők, hogy a felhasználók jelezni tudják, ha bármilyen problémába ütköznek az oldal használata során.</div></p>
       </div>
     </div>
     </div>
