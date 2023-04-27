@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 import ProfilePage from '../ProfilePage';
+import { Link } from "react-router-dom";
 
 interface Props {
   authToken: string;
@@ -14,10 +15,8 @@ const GyikPage: React.FC<Props> = (props) => {
 
   
   return (
-    <div><div>
+    <div id="gyik-page"><div>
         <button className="logoutbutton" onClick={handleLogout}>Kijelentkezés</button>
-      </div>
-      <div>
         <ProfilePage authToken={props.authToken} onLogout={props.onLogout} />
       </div>
     <div className="contact-page-container">

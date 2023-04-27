@@ -32,6 +32,7 @@ const testPosts: BlogPost[] = [
       "A halakban található omega-3 zsírsavak számos egészségügyi előnnyel rendelkeznek, például csökkentik a szívbetegségek, a stroke és a rák kockázatát. Emellett jótékony hatással vannak az agyra és az idegrendszerre, és segíthetnek csökkenteni az ízületi gyulladást és a depressziót.",
     date: new Date("2023-02-20"),
   },
+  
 ];
 
 const BlogPage = (props: Props) => {

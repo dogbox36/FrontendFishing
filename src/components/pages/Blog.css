@@ -51,3 +51,40 @@
     font-size: 1rem;
     color: #666;
 }
+
+@media screen and (max-width: 768px) {
+    .blog-page {
+        flex-direction: column;
+        padding-top: 10%;
+    }
+    .blog-page__title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .blog-post {
+        margin-bottom: 2rem;
+    }
+    .fooldal {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .page-title {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .oldalak {
+        font-size: 1.5rem;
+    }
+    .blog-post__title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .blog-post__content {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .blog-post__date {
+        font-size: 0.8rem;
+    }
+}

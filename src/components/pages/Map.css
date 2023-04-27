@@ -13,6 +13,14 @@
     z-index: 1;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
 .map-container {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #5cb85c;
@@ -22,7 +30,7 @@
     width: 90%;
     height: 90%;
     max-height: 100vh;
-    position: fixed;
+    position: relative;
     top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -88,4 +96,16 @@
     background-color: #5cb85c;
     color: #fefefe;
     float: right;
+}
+
+@media screen and (max-width: 500px) {
+    .map-container {
+        height: 300px;
+    }
+    .card {
+        width: 100%;
+    }
+    .card-container {
+        height: 100%;
+    }
 }

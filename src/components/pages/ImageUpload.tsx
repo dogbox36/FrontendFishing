@@ -44,7 +44,7 @@ const ImageUpload: React.FC<Props> = ({ onImageSelected }) => {
 
   return (
     <div className="image-upload">
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="input-field">
           <input
             type="file"

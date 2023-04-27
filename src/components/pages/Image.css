@@ -31,3 +31,20 @@ body {
 .catch-image-data p {
     margin: 5px 0;
 }
+
+
+/* Mobile View */
+
+@media screen and (max-width: 768px) {
+    .catch-container {
+        margin-top: 10px;
+        overflow-y: visible;
+    }
+    .catch-image {
+        padding-top: 10px;
+    }
+    .catch-image-data {
+        width: 90%;
+        margin-left: 0;
+    }
+}

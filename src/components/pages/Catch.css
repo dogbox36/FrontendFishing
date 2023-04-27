@@ -66,7 +66,9 @@
 }
 
 .catch-diary-header h1 {
-    order: 2;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
 }
 
 .catch-diary-header .logoutbutton {
@@ -177,4 +179,50 @@
     background-color: #f7f7f7;
     padding: 8px;
     border-radius: 4px;
+}
+
+
+/*mobile devices*/
+
+@media screen and (max-width: 768px) {
+    .catch-diary-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: 1px solid #ddd;
+        font-family: "Helvetica Neue", sans-serif;
+        flex-direction: column;
+        overflow: hidden;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        position: static;
+        margin: 0 auto;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: none;
+        margin-top: 5px;
+    }
+    .catch-diary-list-container {
+        flex-direction: column;
+        overflow: hidden;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        position: static;
+        margin: 0 auto;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        transform: none;
+        margin-top: 60px;
+    }
+    .catch-diary-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 0;
+    }
 }

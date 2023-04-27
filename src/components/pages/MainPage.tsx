@@ -5,6 +5,9 @@ import './Map.css';
 import { GoogleMap, InfoWindow, LoadScript, Marker } from '@react-google-maps/api';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBook, faCalendar, faFish, faImages, faInfoCircle, faPen } from '@fortawesome/free-solid-svg-icons';
+import { Helmet } from 'react-helmet';
+
+
 
 import './Blog.css';
 import { Link } from "react-router-dom";
@@ -138,8 +141,11 @@ render() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="main-page-container">
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <div className="header">
         <h2 className="oldal">Fő oldal</h2>
       
         <ProfilePage authToken={this.props.authToken} onLogout={this.props.onLogout} />

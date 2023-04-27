@@ -1,21 +1,39 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 .contact-page-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     font-size: 25px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .contact-details {
     margin: 2rem 0;
     text-align: center;
     font-size: 20px;
+    max-width: 600px;
 }
 
 .feher {
     color: white;
-    text-decoration: underline;
     text-decoration: none;
     font-weight: bold;
 }
@@ -27,7 +45,43 @@
 
 .email-link {
     color: white;
-    text-decoration: underline;
     text-decoration: none;
     font-weight: bold;
+}
+
+#gyik-page .card-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #3a3a3a;
+    color: white;
+    height: 50%;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 25%;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-page-container {
+        font-size: 20px;
+        padding: 1rem;
+    }
+    .contact-details {
+        margin: 1rem 0;
+        font-size: 20px;
+    }
+    .feher,
+    .email-link {
+        font-size: 20px;
+    }
+    .bug-report {
+        font-size: 20px;
+    }
+    #gyik-page .card-container {
+        height: 100%;
+        margin-top: 50%;
+    }
 }

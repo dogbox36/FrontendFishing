@@ -22,3 +22,43 @@
 .input-field input {
     vertical-align: middle;
 }
+
+
+/* Responsiveness for mobile devices */
+
+@media screen and (max-width: 768px) {
+    .image-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-upload-label {
+        text-align: center;
+    }
+    .image-upload-selected-file {
+        text-align: center;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 80vh;
+        margin: 0 auto;
+        padding-top: 20px;
+        position: relative;
+    }
+    .input-field {
+        padding-top: 50px;
+    }
+    .menubutton {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+    }
+    .logoutbutton {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        right: 0;
+    }
+}
